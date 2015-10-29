@@ -47,4 +47,15 @@
 			</list>
 		</property>
 	</bean>
+    <bean
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper" ref="jacksonObjectMapper" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="jacksonObjectMapper" class="com.liferay.test.mapper.CustomObjectMapper" />
 </beans>
